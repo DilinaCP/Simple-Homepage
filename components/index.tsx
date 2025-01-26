@@ -10,7 +10,19 @@ import service3 from '../public/images/service3.png';
 import service4 from '../public/images/service4.png';
 import service5 from '../public/images/service5.png';
 import service6 from '../public/images/service6.png';
+import news1 from '../public/images/news1.png';
+import news2 from '../public/images/news2.png';
+import news3 from '../public/images/news3.png';
+import news4 from '../public/images/news4.png';
+import news5 from '../public/images/news5.png';
 import whychooseus from '../public/images/whychooseus.png';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+} from "@/components/ui/dropdown-menu";
 
 const services = [
   {
@@ -48,6 +60,34 @@ const services = [
     description:
       "Provides tools for managing patient lists, sharing records, and tracking health updates.",
     image: service6,
+  },
+];
+
+const blogs = [
+  {
+    title: "Vitamin injections for a better future",
+    date: "22 January, 2024",
+    img: news1,
+  },
+  {
+    title: "New advancements in AI technology",
+    date: "15 February, 2024",
+    img: news2,
+  },
+  {
+    title: "Health benefits of a balanced diet",
+    date: "10 March, 2024",
+    img: news3,
+  },
+  {
+    title: "The future of renewable energy",
+    date: "5 April, 2024",
+    img: news4,
+  },
+  {
+    title: "Innovations in medical research",
+    date: "20 May, 2024",
+    img: news5,
   },
 ];
 
@@ -189,11 +229,113 @@ const HomePage = () => {
                </div>
              </div>
 
-             <div className="bg-blue-900 border border-blue-300 rounded-xl shadow-lg p-10 w-full flex flex-col md:flex-row mt-10">
-              <p className='text-white mb-5 text-left'><strong>SEARCH BY SPECIALIST AND DOCTOR</strong></p>
-              
-             </div>
-          
+             <div className="bg-blue-900 border border-blue-300 rounded-xl shadow-lg p-10 w-full flex flex-col md:flex-row items-center justify-between gap-4 mt-10">
+              <p className="text-white mb-5 text-left md:mb-1">
+                <strong>SEARCH BY SPECIALIST AND DOCTOR</strong>
+              </p>
+
+              <div className="bg-white p-5 rounded-lg w-full md:w-1/6">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>All Specialist</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>Specialist 1</DropdownMenuItem>
+                    <DropdownMenuItem>Specialist 2</DropdownMenuItem>
+                    <DropdownMenuItem>Specialist 3</DropdownMenuItem>
+                    <DropdownMenuItem>Specialist 4</DropdownMenuItem>
+                    <DropdownMenuItem>Specialist 5</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg w-full md:w-1/6">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>All Doctors</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem> Doctor 1</DropdownMenuItem>
+                    <DropdownMenuItem> Doctor 2</DropdownMenuItem>
+                    <DropdownMenuItem> Doctor 3</DropdownMenuItem>
+                    <DropdownMenuItem> Doctor 4</DropdownMenuItem>
+                    <DropdownMenuItem> Doctor 5</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <div className="bg-blue-300 p-5 rounded-lg w-full md:w-1/6 flex items-center justify-center">
+                <button className="text-white font-bold">Search by Specialist and Doctor</button>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 py-10">
+              <div className="container mx-auto px-5">
+                {/* Section Header */}
+                <div className="flex justify-between items-center mb-8">
+                  <h2 className="text-2xl font-bold text-gray-800">Blogs and News</h2>
+                  <a
+                    href="#"
+                    className="text-blue-600 font-medium hover:underline"
+                  >
+                    All Blogs and News
+                  </a>
+                </div>
+
+                {/* Blog Content */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {/* Main Blog */}
+                  <div className="col-span-1 md:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img
+                      src={news1.src} 
+                      alt="Blog Main"
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="p-5">
+                      <div className="flex items-center mb-3">
+                        <span className="text-gray-500 text-sm">By Admin</span>
+                        <span className="text-gray-400 mx-2">|</span>
+                        <span className="text-gray-500 text-sm">28 January 2024</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                        Characteristics of Diabetes in Young Children to Pay Attention to
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4">
+                        Diabetes can be experienced by anyone, including young people. In
+                        fact, diabetes now often occurs in young people, as quoted by the
+                        World Health Organization (WHO).
+                      </p>
+                      <a
+                        href="#"
+                        className="text-blue-600 font-medium hover:underline"
+                      >
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Other Blogs */}
+                  {blogs.map((blog, index) => (
+                    <div key={index} className="col-span-1 bg-white shadow-lg rounded-lg overflow-hidden">
+                      <Image
+                        src={blog.img}
+                        alt={`Blog ${index + 1}`}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="p-4">
+                        <div className="flex items-center mb-3">
+                          <span className="text-gray-500 text-sm">By Admin</span>
+                          <span className="text-gray-400 mx-2">|</span>
+                          <span className="text-gray-500 text-sm">{blog.date}</span>
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2">{blog.title}</h3>
+                        <a
+                          href="#"
+                          className="text-blue-600 font-medium hover:underline"
+                        >
+                          Read More →
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>

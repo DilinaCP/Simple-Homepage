@@ -15,7 +15,7 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full h-24 bg-white z-50 border-b shadow-md">
+    <nav className="fixed top-0 w-full h-16 bg-white z-50 border-b shadow-md">
       <div className="container h-full mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
